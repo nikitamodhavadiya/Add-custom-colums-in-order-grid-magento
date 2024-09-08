@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="SalesOrderGrid" type="Magento\Sales\Model\ResourceModel\Order\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="tracking_number" xsi:type="string">tracking_number</item>
+                <item name="shipping_carrier" xsi:type="string">shipping_carrier</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="order_grid_save_tracking_plugin" type="Mage\GridChange\Plugin\OrderSavePlugin"/>
+    </type>
+</config>
